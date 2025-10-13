@@ -1,25 +1,30 @@
 ---
 # Nome do arquivo PDF gerado na pasta resultado
-output-file: "Entrega 1 - Gustavo"
+output-file: "Entrega 1 - Davi Folha Desseaux"
 ---
 
 ```{r setup}
-#| include: false
 source("rdocs/entrega_1.R")
 ```
 
 # Análises
 
-## Análise tal
+## Análise 1
 
-Introdução da análise
+Essa análise tem como objetivo visualizar a evolução da receita média total das lojas, em reais, na região do faroeste nos últimos 10 anos (1880-1889). Uma abordagem simples e objetiva foi adotada, onde foi calculada a média, por ano, de faturamento das lojas. As variáveis utilizadas foram data, id (produto, loja, venda), quantidade de produtos vendidos e preço. Além disso, foi utilizada uma taxa de conversão de 5,31 reais para 1 dólar.
 
-```{r}
-#| label: fig-g1
-#| fig-cap: "Gráfico de barras teste "
-g1
+```{=latex}
+
+
 ```
 
-descritiva $\ref{fig-g1}$ volta pra figura
+
+```{r}
+#| label: fig-grafico_1
+#| fig-cap: "Receita média das lojas por ano (em reais)"
 
 
+grafico_1
+```
+
+A tabela (faltando formatar e resolver meu problema ainda não identificado) x.x indica que houve um constante aumento no objeto estudado, indicando uma melhora. O gráfico x.x mostra que essa melhora geral só teve um momento de declínio, bem breve, entre os anos de 1887 e 1888. De resto, essa média sempre subiu. (Ficou pendente formatação, tabela, levantar hipóteses e estudar mais a fundo) 

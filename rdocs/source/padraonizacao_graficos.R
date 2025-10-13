@@ -281,8 +281,8 @@ ggplot(mpg) +
 
 # 4. Histograma ----
 # 4.1 Univariado ----
-ggplot(mpg) +
-  aes(x = cty) +
+ggplot(relatorio_anual) +
+  aes(x = Ano, y = ) +
   geom_histogram(colour = "white", fill = "#A11D21", binwidth = 7) +
   labs(x = "Consumo em Cidade (milhas/galão)", y = "Frequência Absoluta") +
   theme_estat()
