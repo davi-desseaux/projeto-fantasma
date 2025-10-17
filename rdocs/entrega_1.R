@@ -3,6 +3,8 @@ source("rdocs/source/packages.R")
 library(readxl)
 library(dplyr)
 library(lubridate)
+library(dplyr)
+library(ggplot2)
 
 ##Análise 1
 

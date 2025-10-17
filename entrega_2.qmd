@@ -1,6 +1,6 @@
 ---
 # Nome do arquivo PDF gerado na pasta resultado
-output-file: "Entrega 2"
+output-file: "Entrega 2 - Davi Folha Desseaux"
 ---
 
 ```{r setup}
@@ -8,70 +8,22 @@ output-file: "Entrega 2"
 source("rdocs/entrega_2.R")
 ```
 
-
-```{r}
-# Rodar apenas uma vez na vida!
-## Instalando o tinytex(pacote apenas)
-### CRAN version
-install.packages('tinytex')
-
-
-## Baixando o tinytex
-library(tinytex)
-tinytex::install_tinytex()
-```
-
-# Objetivo
-
-Esse template foi criado para o alocado conseguir observar como ficaria sua análise o arquivo principal. É daqui que o gerente de projetos irá copiar a análise e inserir no documento principal que gerará o relatório estatístico.
-
 # Análises
 
-## Análise 3
+## Variação Peso por Altura
 
-## Análise 4
+O intuito dessa análise é entender a relação entre o peso (em quilogramas) e altura (em centímetros) dos clientes. A partir dela, concluiremos se a medida que o peso aumenta, a altura também aumenta, o contrário ou se não tem diferença. O nível de significância utilizado será de 5%. 
 
 ```{r}
-#| label: fig-
-#| fig-cap: "Gráfico "
+#| label: fig-grafico_2
+#| fig-cap: "Gráfico de dispersão do peso pela altura"
 
 
-
+grafico_2
 ```
 
 
-::: {#quad- layout-align="center" quad-pos="H"}
-```{=latex}
+O gráfico de dispersão apresentado acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. A linha azul tracejada indica a regressão linear ajustada, representando a tendência central da relação entre altura e peso. Observa-se uma relação positiva clara: à medida que a altura aumenta, o peso também tende a ser maior. Essa visualização confirma os resultados estatísticos obtidos previamente: a correlação de Spearman indicou uma associação positiva moderada a forte (ρ≈0.69) e o modelo de regressão linear mostrou que a altura explica aproximadamente 49% da variação do peso, reforçando que há uma relação significativa entre essas duas variáveis.
 
-
-
-```
-
-Medidas resumo da 
-:::
-
-
-
-::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
-```{=latex}
-
-
-```
-
-
-:::
-
-
-
-
-$\ref{fig-}$
-
-[@tbl-]
-
-
-[**Quadro** @quad-]
-
-
-
-
+Em resumo, o gráfico ilustra claramente que clientes mais altos tendem a ter maior peso, embora ainda exista variação considerável em torno da tendência central.
 

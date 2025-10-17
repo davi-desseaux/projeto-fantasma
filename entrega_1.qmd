@@ -23,3 +23,4 @@ grafico_1
 ```
 
 A $\ref{fig-grafico_1}$ evidencia que houve um constante aumento na receita média das lojas, indo de R\$105.399,00 no primeiro ano até R\$155.009,10 no último ano (com uma pequena queda entre 1887 e 1888, de R\$135.444,80 para R\$133.757,60). Portanto, ao longo dos 10 anos, a receita média aumentou R\$49.610,10.  Assim, um aumento médio de, aproximadamente, R\$5.000,00.
+
