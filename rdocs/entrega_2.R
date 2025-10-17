@@ -32,7 +32,6 @@ cor.test(peso, altura, method = "spearman")
 grafico_2 <- ggplot(infos_clientes) +
   aes(x = altura, y = peso) +
   geom_point(colour = "#A11D21", size = 3, alpha = 0.6) +
-  geom_smooth(method = "lm", se = TRUE, colour = "blue", linetype = "dashed") +  # linha de regressão
   labs(
     x = "Altura (em cm)",
     y = "Peso (em kg)"
@@ -40,3 +39,4 @@ grafico_2 <- ggplot(infos_clientes) +
   theme_estat()
 ggsave("disp_uni.pdf", width = 158, height = 93, units = "mm")
 print(grafico_2)
+

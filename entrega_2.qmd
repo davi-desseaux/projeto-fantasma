@@ -14,6 +14,33 @@ source("rdocs/entrega_2.R")
 
 O intuito dessa análise é entender a relação entre o peso (em quilogramas) e altura (em centímetros) dos clientes. A partir dela, concluiremos se a medida que o peso aumenta, a altura também aumenta, o contrário ou se não tem diferença. O nível de significância utilizado será de 5%. 
 
+Ao realizar o teste de Shapiro-Wilk para verificar se as variáveis em questão, altura e peso, seguem uma distribuição Normal, foi concluído que não existem evidências estatísticas suficientes para tal. Portanto, houve a necessidade de usar um teste não-paramétrico. Dado o contexto, o melhor teste para isso era o de Spearman, com as seguintes hipóteses:
+
+$$
+\left\{
+\begin{array}{l}
+H_0: \text{Não há correlação entre altura e peso} \\
+H_1: \text{Há correlação entre altura e peso}
+\end{array}
+\right.
+$$
+Ao realizar o teste, foram encontradas as seguintes conclusões: 
+
+::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
+```{=latex}
+\begin{table}[]
+\begin{tabular}{lllll}
+\cline{1-4}
+\multicolumn{1}{|c}{\textbf{Variáveis}} & \multicolumn{1}{c}{\textbf{Coeficiente (p)}} & \multicolumn{1}{c}{\textbf{P-valor}} & \multicolumn{1}{c|}{\textbf{Decisão do teste}} &  \\ \cline{1-4}
+\multicolumn{1}{|c}{Peso e Altura}      & \multicolumn{1}{c}{0,69}                      & \multicolumn{1}{c}{< 0,0001}         & \multicolumn{1}{c|}{Rejeita H0}                &  \\ \cline{1-4}
+                                        &                                               &                                      &                                                &  \\
+                                        &                                               &                                      &                                                & 
+\end{tabular}
+\end{table} 
+```
+:::
+
+
 ```{r}
 #| label: fig-grafico_2
 #| fig-cap: "Gráfico de dispersão do peso pela altura"
@@ -23,7 +50,7 @@ grafico_2
 ```
 
 
-O gráfico de dispersão apresentado acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. A linha azul tracejada indica a regressão linear ajustada, representando a tendência central da relação entre altura e peso. Observa-se uma relação positiva clara: à medida que a altura aumenta, o peso também tende a ser maior. Essa visualização confirma os resultados estatísticos obtidos previamente: a correlação de Spearman indicou uma associação positiva moderada a forte (ρ≈0.69) e o modelo de regressão linear mostrou que a altura explica aproximadamente 49% da variação do peso, reforçando que há uma relação significativa entre essas duas variáveis.
+O gráfico de dispersão apresentado acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. Observa-se uma relação positiva clara: à medida que a altura aumenta, o peso também tende a ser maior. Essa visualização confirma os resultados estatísticos obtidos previamente: a correlação de Spearman indicou uma associação positiva moderada a forte (ρ≈0.69), reforçando que há uma relação significativa entre essas duas variáveis.
 
-Em resumo, o gráfico ilustra claramente que clientes mais altos tendem a ter maior peso, embora ainda exista variação considerável em torno da tendência central.
+Em resumo, o gráfico ilustra claramente que clientes mais altos tendem a ter maior peso.
 
