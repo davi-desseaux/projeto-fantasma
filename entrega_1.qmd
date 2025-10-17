@@ -13,11 +13,6 @@ source("rdocs/entrega_1.R")
 
 Essa análise tem como objetivo visualizar a evolução da receita média total das lojas, em reais, na região do faroeste nos últimos 10 anos (1880-1889). Uma abordagem simples e objetiva foi adotada, onde foi calculada a média, por ano, de faturamento das lojas. As variáveis utilizadas foram data, id (produto, loja, venda), quantidade de produtos vendidos e preço. Além disso, foi utilizada uma taxa de conversão de 5,31 reais para 1 dólar.
 
-```{=latex}
-
-
-```
-
 
 ```{r}
 #| label: fig-grafico_1
