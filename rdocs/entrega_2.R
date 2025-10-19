@@ -19,13 +19,8 @@ infos_clientes <- infos_clientes |> mutate(altura = round(altura, 2))
 peso <- infos_clientes$peso
 altura <- infos_clientes$altura
 
-# Verificando normalidade
-shapiro.test(peso)
-shapiro.test(altura)
-# Como não existem existem evidências estatísticas suficientes para concluir que os dados seguem uma distribuição Normal, seguimos para testes não paramétricos
-
-# TESTE DE SPEARMAN
-cor.test(peso, altura, method = "spearman")
+# TESTE DE PEARSON  
+cor.test(peso, altura, method = "pearson")
 # Como o p-valor é muito menor que 0.05, há evidência estatística de correlação positiva (se um varia, o outro tende a variar no mesmo sentido) entre altura e peso.
 # Mesmo considerando os empates, a correlação estimada é forte (ρ≈0.69) e o p-valor indica que essa relação não é coincidência.
 
