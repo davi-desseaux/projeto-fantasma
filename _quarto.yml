@@ -1,9 +1,9 @@
 project:
-  title: "Quarto - Template" # É interessante mudar o nome do projeto para gestão de conhecimento
+  title: "Gestão de Conhecimento"   # nome atualizado do projeto
   output-dir: resultados/
 
+lang: portuguese 
 
-lang: pt
 format: 
   pdf:
     geometry: 
@@ -15,18 +15,15 @@ format:
     toc: true
     toc-title: "Sumário"
     mainfont: Arial 
-    
     linkcolor: black 
     filecolor: black
     citecolor: black
     urlcolor: black 
     number-sections: true
-    
     fig-width: 6.2
     fig-height: 3.66
-
-cap-location: top
-fig-pos: H
+    cap-location: top
+    fig-pos: H
 
 crossref: 
   fig-title: Figura
@@ -37,24 +34,18 @@ crossref:
     - kind: float
       key: quad
       latex-env: quadro
-      reference-prefix: Teste
+      reference-prefix: Quadro
       caption-prefix: Quadro
       caption-location: top
-
 
 execute: 
   message: false
   warning: false
   echo: false
-   
-  
-    
 
 include-in-header:
-  - file: arquivos_tex/nome_dos_alocados_e_do_cliente.tex # Arrumando para adicionar os autores e o cliente
+  - file: arquivos_tex/nome_dos_alocados_e_do_cliente.tex
   - file: arquivos_tex/outros_detalhes.tex
 
 include-before-body: 
   - file: arquivos_tex/logo.tex
-  
-
