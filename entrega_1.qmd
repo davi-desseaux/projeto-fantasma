@@ -3,11 +3,9 @@
 output-file: "Entrega 1 - Davi Folha Desseaux"
 ---
 
-```{r setup}
+```{r setup-analise1}
 source("rdocs/entrega_1.R")
 ```
-
-# Análises
 
 ## Receita média das lojas registrada nos anos de 1880 até 1889 
 

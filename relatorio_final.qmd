@@ -1,19 +1,219 @@
 ---
-title: "Modelo Projeto - Quarto"
+title: "Relatório Old Town Road"
 
 # Nome do documento PDF gerado
-output-file: titulo do projeto
+output-file: 25000 - João Sábio
 ---
 
 ```{r}
 #| include: false
-source("rdocs/packages.R")
+source("rdocs/source/packages.R")
 ```
 
 # Introdução
+O seguinte projeto tem como objetivo realizar análises estatísticas que visam compreender melhor o mercado e comércio no Faroeste. Serão feitos estudos sobre correlações, distribuições, padrões e outras métricas relevantes para se obter soluções embasadas estatisticamente. Além disso, gráficos, tabelas e quadros que ajudem na visualização de tudo que foi citado. O nível de significância utilizado será de 5%. 
+
+A base de dados representa uma amostra não probabilística por conveniência, composta pelos registros disponíveis no sistema da empresa.
+Embora não tenha sido realizada uma seleção aleatória, o conjunto de dados é suficientemente amplo e variado, o que permite análises representativas do perfil dos clientes. O banco de dados foi cedido pelo próprio cliente e abrange variáveis de todo tipo (quantitativas e qualitativas), englobando informações sobre lojas, cidades, clientes, vendas e muito mais.
+
+O software utilizado será o R na versão 4.3.0.
 
 # Referencial Teórico
+Este relatório é composto por técnicas estatísticas que serão descristas a seguir de acordo com o que foi utilizado em tal estudo.
+
+## Média
+
+A média é a soma das observações dividida pelo número total delas, dada pela fórmula:
+
+$$\bar{X}=\frac{\sum\limits_{i=1}^{n}X_i}{n}$$
+
+Com:
+
+-   $i = 1, \, 2, \, ..., \, n$
+
+-   $n =$ número total de observações
+
+## Mediana
+
+Sejam as $n$ observações de um conjunto de dados $X=X_{(1)},X_{(2)},\ldots, X_{(n)}$ de determinada variável ordenadas de forma crescente. A mediana do conjunto de dados $X$ é o valor que deixa metade das observações abaixo dela e metade dos dados acima.
+
+Com isso, pode-se calcular a mediana da seguinte forma:
+
+$$
+med(X) =
+    \begin{cases}
+         X_{\frac{n+1}{2}}, \textrm{para n ímpar} \\
+         \frac{X_{\frac{n}{2}}+X_{\frac{n}{2} + 1}}{2}, \textrm{para n par} \\
+    \end{cases}
+$$
+
+## Quartis
+
+Os quartis são separatrizes que dividem o conjunto de dados em quatro partes iguais. O primeiro quartil (ou inferior) delimita os 25% menores valores, o segundo representa a mediana, e o terceiro delimita os 25% maiores valores. Inicialmente deve-se calcular a posição do quartil:
+
+-   Posição do primeiro quartil $P_1$: $$P_1=\frac{n+1}{4}$$
+
+-   Posição da mediana (segundo quartil) $P_2$: $$P_2 = \frac{n+1}{2}$$
+
+-   Posição do terceiro quartil $P_3$: $$P_3=\frac{3 \times (n+1)}{4}$$
+
+Com $n$ sendo o tamanho da amostra. Dessa forma, $X_{\left( P_i \right)}$ é o valor do $i$-ésimo quartil, onde $X_{\left( j \right)}$ representa a $j$-ésima observação dos dados ordenados.
+
+Se o cálculo da posição resultar em uma fração, deve-se fazer a média entre o valor que está na posição do inteiro anterior e do seguinte ao da posição.
+
+## Variância
+
+A variância é uma medida que avalia o quanto os dados estão dispersos em relação à média, em uma escala ao quadrado da escala dos dados.
+
+## Desvio Padrão
+
+O desvio padrão é a raiz quadrada da variância. Ele avalia o quanto os dados estão dispersos em relação à média.
+
+O boxplot é uma representação gráfica na qual se pode perceber de forma mais clara como os dados estão distribuídos. A figura abaixo ilustra um exemplo de boxplot.
+
+![Exemplo de boxplot](images/box_uni.png){fig-align="center"}
+
+A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a superior indica o terceiro quartil. Já o traço no interior do retângulo representa a mediana do conjunto de dados, ou seja, o valor em que o conjunto de dados é dividido em dois subconjuntos de mesmo tamanho. A média é representada pelo losango branco e os pontos são *outliers*. Os *outliers* são valores discrepantes da série de dados, ou seja, valores que não demonstram a realidade de um conjunto de dados.
+
+## Histograma
+
+O histograma é uma representação gráfica utilizada para a visualização da distribuição dos dados e pode ser construído por valores absolutos, frequência relativa ou densidade. A figura abaixo ilustra um exemplo de histograma.
+
+![Exemplo de histograma](images/hist_uni.png){fig-align="center"}
+
+## Gráfico de Dispersão
+
+O gráfico de dispersão é uma representação gráfica utilizada para ilustrar o comportamento conjunto de duas variáveis quantitativas. A figura abaixo ilustra um exemplo de gráfico de dispersão, onde cada ponto representa uma observação do banco de dados.
+
+![Exemplo de Gráfico de Dispersão](images/disp_uni.png){fig-align="center"}
+
+## Tipos de Variáveis
+
+### Qualitativas
+
+As variáveis qualitativas são as variáveis não numéricas, que representam categorias ou características da população. Estas subdividem-se em:
+
+-   **Nominais**: quando não existe uma ordem entre as categorias da variável (exemplos: sexo, cor dos olhos, fumante ou não, etc)
+-   **Ordinais**: quando existe uma ordem entre as categorias da variável (exemplos: nível de escolaridade, mês, estágio de doença, etc)
+
+### Quantitativas
+
+As variáveis quantitativas são as variáveis numéricas, que representam características numéricas da população, ou seja, quantidades. Estas subdividem-se em:
+
+-   **Discretas**: quando os possíveis valores são enumeráveis (exemplos: número de filhos, número de cigarros fumados, etc)
+-   **Contínuas**: quando os possíveis valores são resultado de medições (exemplos: massa, altura, tempo, etc)
+
+## Teste de Hipóteses
+
+O teste de hipóteses tem como objetivo fornecer uma metodologia para verificar se os dados das amostras possuem indicativos que comprovem, ou não, uma hipótese previamente formulada. Ele é composto por duas hipóteses:
+
+```{=latex}
+\hipoteses{hipótese a ser testada (chamada de hipótese nula)}{hipótese alternativa que será aceita caso a hipótese nula seja rejeitada}
+```
+Essa decisão é tomada por meio da construção de uma região crítica, ou seja, região de rejeição do teste.
+
+### Tipos de teste: bilateral e unilateral
+
+Para a formulação de um teste, deve-se definir as hipóteses de interesse. Em geral, a hipótese nula é composta por uma igualdade (por exemplo, $H_{0}: \theta = \theta_{0}$). Já a hipótese alternativa depende do grau de conhecimento que se tem do problema em estudo. Assim, tem-se três formas de elaborar $H_{1}$ que classificam os testes em duas categorias:
+
+-   **Teste Bilateral**:\
+    Esse é o teste mais geral, em que a hipótese alternativa consiste em verificar se existe diferença entre os parâmetros de interesse, independentemente de um ser maior ou menor que o outro. Dessa forma, tem-se:
+
+    $$ H_{1}: \theta \neq \theta_{0} $$
+
+-   **Teste Unilateral**:\
+    Dependendo das informações que o pesquisador possui a respeito do problema e os questionamentos que possui, a hipótese alternativa pode ser feita de forma a verificar se existe diferença entre os parâmetros em um dos sentidos. Ou seja:
+
+    $$ H_{1}: \theta < \theta_{0} $$ ou $$ H_{1}: \theta > \theta_{0} $$ \## Tipos de Erros Ao realizar um teste de hipóteses, existem dois erros associados: **Erro do Tipo I** e **Erro do Tipo II**.
+
+-   **Erro do Tipo I**:\
+    Esse erro é caracterizado por rejeitar a hipótese nula ($H_{0}$) quando essa é verdadeira. A probabilidade associada a esse erro é denotada por $\alpha$, também conhecido como nível de significância do teste.
+
+-   **Erro do Tipo II**:\
+    Ao não rejeitar $H_{0}$ quando, na verdade, é falsa, está sendo cometido o **Erro do Tipo II**. A probabilidade de se cometer este erro é denotada por $\beta$.
+
+### Nível de significância ($\alpha$)
+
+O nível de significância do teste é o nome dado à probabilidade de se rejeitar a hipótese nula quando essa é verdadeira; essa rejeição é chamada de **erro do tipo I**. O valor de $\alpha$ é fixado antes da extração da amostra e, usualmente, assume 5%, 1% ou 0,1%.
+
+Por exemplo, um nível de significância de $\alpha=0,05$ (5%) significa que, se for tomada uma grande quantidade de amostras, em 5% delas a hipótese nula será rejeitada quando não havia evidências para essa rejeição, isto é, a probabilidade de se tomar a decisão correta é de 95%.
+
+### Estatística do Teste
+
+A estatística do teste é o estimador que será utilizado para testar se a hipótese nula ($H_{0}$) é verdadeira ou não. Ela é escolhida por meio das teorias estatísticas.
+
+### P-valor
+
+O **P-valor**, ou nível descritivo, é uma medida utilizada para sintetizar o resultado de um teste de hipóteses. Ele também pode ser chamado de *probabilidade de significância* do teste e indica a probabilidade de se obter um resultado da estatística de teste mais extremo do que o observado na presente amostra, considerando que a hipótese nula é verdadeira. Dessa forma, rejeita-se $H_{0}$ quando $P\text{-valor} < \alpha$, porque a chance de uma nova amostra possuir valores tão extremos quanto o encontrado é baixa, ou seja, há evidências para a rejeição da hipótese nula.
+
+### Teste de Correlação de Postos de Spearman
+
+O coeficiente de correlação de Spearman é uma medida não paramétrica que verifica, por meio de postos de variáveis quantitativas ou qualitativas ordinais, o grau de correlação linear entre duas variáveis. Esse coeficiente varia entre os valores -1 e 1. O valor zero significa que não há relação linear entre as variáveis. Quando o valor do coeficiente $r$ é negativo, diz-se ter uma relação de grandeza inversamente proporcional entre as variáveis. Analogamente, quando $r$ é positivo, afirma-se que as duas variáveis são diretamente proporcionais.
+
+O coeficiente é calculado da seguinte maneira:
+
+$$
+r_{Spearman} = \frac{ \displaystyle \sum_{i=1}^{n}  \left[\left(R(x_i)-\frac{n+1}{2}\right)\left(R(y_i)-\frac{n+1}{2}\right)\right]}
+{\sqrt{\displaystyle \sum_{i=1}^{n}  \left(R(x_i)^2\right)-n\left(\frac{n+1}{2}\right)^{2}}  \times \sqrt{\displaystyle \sum_{i=1}^{n}  \left(R(y_i)^2 \right) -n\left(\frac{n+1}{2}\right)^{2}}}
+$$
+
+no qual
+
+-   $x_i=$ i-ésimo valor da variável $X$
+-   $y_i=$ i-ésimo valor da variável $Y$
+-   $R(x_i)=$ posto atribuído a $x_{i}$, quando comparado a outros valores de $x$
+-   $R(y_i)=$ posto atribuído a $y_{i}$, quando comparado a outros valores de $y$
+-   $n=$ número total de observações na amostra
+-   $r_{Spearman}=$ coeficiente de correlação de postos de Spearman amostral
+
+**Observação:** ao ordenar de forma crescente as observações $x_1,x_2,...,x_n,y_1,y_2,...,y_n$ afirma-se que $R(X_1)=1$ se $x_1$ é o menor valor da amostra, $R(X_3)=2$ se $x_3$ é o segundo menor valor da amostra, $R(X_4)=3$ se $x_4$ é o terceiro menor valor, e assim sucessivamente. Quando há empates nas observações, o posto atribuído a elas é a média dos postos que teriam se não houvesse empate. Por exemplo, se $X$ assume os valores 9, 5, 6 e 9, tem-se duas observações com mesmo valor e, assim, seus postos serão obtidos por meio da média entre 3 e 4, que seriam seus postos se não houvesse empate.
+
+Por ser um método não paramétrico, não há suposições para o teste.
+
+Para a realização do teste, são feitas as seguintes hipóteses:
+
+\hipoteses{Não há correlação de postos entre as variáveis $X$ e $Y$ $\left(\rho_{Spearman} = 0 \right)$ }{Há correlação de postos entre as variáveis $X$ e $Y$ $\left(\rho_{Spearman} \neq 0 \right)$ }
+
+em que $\rho_{Spearman}$ é o coeficiente de correlação de postos populacional (parâmetro a ser testado com base em $r_{Spearman}$).
+
+Além disso, a hipótese alternativa também pode ser escrita para testar se a correlação dos postos é positiva ($\rho_{Spearman} > 0$) ou negativa ($\rho_{Spearman} < 0$).
+
+A estatística T do teste ($T=r_{Spearman}$), se $H_0$ é verdadeira, tem distribuição:
+
+-   **a)** **Pequenas amostras e sem/poucos empates:** exata com os valores apresentados em uma tabela.
+-   **b)** **Grandes amostras ou muitos empates:** aproximada pela Normal Padrão (Normal com média 0 e variância 1), tal que: $$
+    w_p = \frac{z_p}{\sqrt[]{(n-1)}}
+    $$
+
+no qual
+
+-   $w_p=$ quantil de ordem p da distribuição que a estatística T segue
+-   $z_p=$ quantil de ordem p da distribuição Normal padrão
+-   $n=$ número total de observações na amostra
+
 
 # Análises
 
+```{r, child = "entrega_1.qmd"}
+```
+
+```{r, child = "entrega_2.qmd"}
+```
+
+```{r, child = "entrega_3.qmd"}
+```
+
+```{r, child = "entrega_4.qmd"}
+```
+
 # Conclusões
+
+O objetivo desse projeto era entender melhor o cenário do comércio no Faroeste para estudá-lo e entender dores, possibilidades de expansão, tendências, etc. Compreender características e extrair informaçõe relevantes para o negócio, baseando-se em dados de todo tipo e relacionados à diferentes pontos (receita média, características físicas, idade, produtos).
+
+Em relação à evolução do mercado, as análises de receita média das lojas indicam um crescimento constante ao longo da última década (1880-1889). Houve um aumento médio de aproximadamente R\$ 5.000,00 na receita média anual, sugerindo um mercado em expansão e saudável e com possibilidades de investimentos.
+
+No que tange ao perfil do consumidor, a análise da correlação entre peso e altura demonstrou haver uma relação positiva estatisticamente significativa. Isso implica que clientes mais altos tendem a ter um peso maior, uma informação útil para estratégias relacionadas a produtos que dependem de dimensões físicas, podendo direcionar melhor os produtos para cada região (ou até cada loja).
+
+RESUMO DA ANÁLISE 3 VAI FICAR PENDENTE PORQUE AINDA ESTÁ ERRADO
+
+Por fim, ao analisar os produtos de maior sucesso nas três lojas com maior receita em 1889, verificou-se que produtos como chapéu de couro, whisky e espingarda são populares em todo o Faroeste, pois se repetem entre as líderes de vendas. No entanto, é um ponto positivo que nenhuma das lojas dependa excessivamente de um único item, já que o trio de produtos mais vendidos não somou mais de 45% da receita em nenhum dos casos. Isso demonstra uma variedade saudável de vendas e uma entrada de capital de forma dispersa.

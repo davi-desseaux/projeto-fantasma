@@ -86,5 +86,3 @@ boxplots <- ggplot(relatorio_vendas) +
   ) +
   theme_estat()
 ggsave("box_idade_por_loja.pdf", width = 158, height = 93, units = "mm")
-
-

@@ -3,12 +3,10 @@
 output-file: "Entrega 3"
 ---
 
-```{r setup}
+```{r setup-analise3}
 #| include: false
 source("rdocs/entrega_3.R")
 ```
-
-# Análises
 
 ## Idade dos clientes de Âmbar Seco a depender da loja 
 
@@ -17,7 +15,7 @@ Com o intuito de entender melhor o perfil das idades dos clientes nas diferentes
 
 ```{r}
 #| label: fig-boxplots
-#| fig-cap: "Gráfico de distribuição da idade dos clientes por loja"
+#| fig-cap: "Boxplot da idade dos clientes por loja"
 
 
 boxplots
@@ -141,16 +139,10 @@ Mostra uma dispersão intermediária, com idades variando de cerca de 15 a 77 an
 ### Vendinha Rápida
 A loja apresenta a maior mediana, indicando que seu público é relativamente mais maduro. A dispersão das idades é pequena, sugerindo um perfil de clientes mais homogêneo, com idades concentradas principalmente entre 34 e 44 anos (1º e 3º quartis). A faixa total vai de 30 a 49 anos, sem valores extremos muito distantes. 
 
-## Resumo final
+### Resumo final
 
 Em termos de tendência central, a média das idades acompanha de perto as medianas, o que indica distribuições relativamente simétricas, exceto na Ferraria Seca, onde há uma leve assimetria à direita devido à presença dOS clientes mais velhos.
 
 No conjunto, os resultados sugerem que o público das lojas de Âmbar Seco é majoritariamente adulto jovem a meia-idade e que há diferenças no perfil etário conforme a loja, com a Vendinha Rápida atendendo clientes mais velhos e a Ferraria Seca apresentando maior heterogeneidade;
 
 Essas variações podem refletir diferentes tipos de produtos, localizações ou estratégias comerciais de cada estabelecimento.
-
-
-
-
-
-

@@ -2,7 +2,7 @@ project:
   title: "Gestão de Conhecimento"   # nome atualizado do projeto
   output-dir: resultados/
 
-lang: portuguese 
+lang: pt-BR
 
 format: 
   pdf:

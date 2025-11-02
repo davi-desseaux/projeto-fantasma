@@ -3,12 +3,10 @@
 output-file: "Entrega 2 - Davi Folha Desseaux"
 ---
 
-```{r setup}
+```{r setup-analise2}
 #| include: false
 source("rdocs/entrega_2.R")
 ```
-
-# Análises
 
 ## Variação Peso por Altura
 
