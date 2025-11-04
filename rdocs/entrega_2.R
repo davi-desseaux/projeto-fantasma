@@ -2,8 +2,9 @@ source("rdocs/source/packages.R")
 
 library(readxl)
 library(dplyr)
+library(stringr)
 library(lubridate)
-library(dplyr)
+library(tibble)
 library(ggplot2)
 
 ##Análise 2
@@ -35,3 +36,8 @@ grafico_2 <- ggplot(infos_clientes) +
 ggsave("disp_uni.pdf", width = 158, height = 93, units = "mm")
 print(grafico_2)
 
+infos_clientes %>%
+  print_quadro_resumo(var_name = "peso")
+
+infos_clientes %>%
+  print_quadro_resumo(var_name = "altura")

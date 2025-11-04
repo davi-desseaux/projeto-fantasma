@@ -12,6 +12,74 @@ source("rdocs/entrega_2.R")
 
 O intuito dessa análise é entender a relação entre o peso (em quilogramas) e altura (em centímetros) dos clientes. A partir dela, concluiremos se a medida que o peso aumenta: a altura também aumenta, o contrário ou se não tem diferença. O nível de significância utilizado será de 5%. 
 
+```{r}
+#| label: fig-grafico_2
+#| fig-cap: "Gráfico de dispersão do peso pela altura"
+
+
+grafico_2
+```
+
+::: {#quadros-resumo .quadro-duplo layout-align="center"}
+```{=latex}
+\begin{center}
+\begin{minipage}{0.48\textwidth}
+\begin{quadro}[H]
+	\setlength{\tabcolsep}{9pt}
+	\renewcommand{\arraystretch}{1.20}
+	\caption{Medidas resumo do peso (kg)}
+	\label{quad:resumo_peso}
+	\centering
+	\begin{adjustbox}{max width=\textwidth}
+	\begin{tabular}{| l | S[table-format = 3.2] |}
+	\hline
+	\textbf{Estatística} & \textbf{Valor} \\
+	\hline
+	Média & 75.19 \\
+	Desvio Padrão & 11.92 \\
+	Variância & 142 \\
+	Mínimo & 45 \\
+	1º Quartil & 66.9 \\
+	Mediana & 75.3 \\
+	3º Quartil & 83.2 \\
+	Máximo & 119.3 \\
+	\hline
+	\end{tabular}
+	\end{adjustbox}
+\end{quadro}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{quadro}[H]
+	\setlength{\tabcolsep}{9pt}
+	\renewcommand{\arraystretch}{1.20}
+	\caption{Medidas resumo da altura (cm)}
+	\label{quad:resumo_altura}
+	\centering
+	\begin{adjustbox}{max width=\textwidth}
+	\begin{tabular}{| l | S[table-format = 3.2] |}
+	\hline
+	\textbf{Estatística} & \textbf{Valor} \\
+	\hline
+	Média & 171.48 \\
+	Desvio Padrão & 9.87 \\
+	Variância & 97.38 \\
+	Mínimo & 150 \\
+	1º Quartil & 164.8 \\
+	Mediana & 171.75 \\
+	3º Quartil & 178 \\
+	Máximo & 200 \\
+	\hline
+	\end{tabular}
+	\end{adjustbox}
+\end{quadro}
+\end{minipage}
+\end{center}
+```
+:::
+
+A $\ref{fig-grafico_2}$ apresentada acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. Pela $\ref{fig-grafico_2}$, há indícios de que existe uma relação positiva, ou seja, à medida que a altura aumenta, o peso também tende a ser maior. É exatamente isso que iremos verificar a seguir. Além disso, os Quadros \ref{quad:resumo_peso} e \ref{quad:resumo_altura} apresentam as medidas resumo das variáveis, que nos ajudam a entender um pouco de como ela se comporta, sua variabilidade, etc. 
+  
 Foi escolhido o teste de correlação de Pearson, já que o coeficiente de correlação linear de Pearson indica a força e a direção do relacionamento linear entre duas variáveis quantitativas. As hipóteses do teste são:
 
 $$
@@ -24,29 +92,20 @@ H_1: \text{Há correlação linear entre altura e peso}
 $$
 Ao realizar o teste, foram encontradas as seguintes conclusões: 
 
-```{r}
-#| label: fig-grafico_2
-#| fig-cap: "Gráfico de dispersão do peso pela altura"
-
-
-grafico_2
-```
-
 ::: {#tbl-tabela_pearson layout-align="center" tbl-pos="H"}
 ```{=latex}
-\begin{table}[H]
-\centering
-\textbf{Tabela 1 – Teste de correlação de Pearson entre Peso e Altura (Adaptado)}\\[4pt]
-\begin{tabular}{llll}
-\cline{1-4}
-\multicolumn{1}{|c}{\textbf{Variáveis}} & \multicolumn{1}{c}{\textbf{Coeficiente (p)}} & \multicolumn{1}{c}{\textbf{P-valor}} & \multicolumn{1}{c|}{\textbf{Decisão do teste}} \\ \cline{1-4}
-\multicolumn{1}{|c}{Peso e Altura} & \multicolumn{1}{c}{0,70} & \multicolumn{1}{c}{< 0,0001} & \multicolumn{1}{c|}{Rejeita H0} \\ \cline{1-4}
+\begin{tabular}{lll}
+\cline{1-3}
+\multicolumn{1}{|c}{\textbf{Variáveis}} & 
+\multicolumn{1}{c}{\textbf{P-valor}} & 
+\multicolumn{1}{c|}{\textbf{Decisão do teste}} \\ 
+\cline{1-3}
+\multicolumn{1}{|c}{Peso e Altura} & 
+\multicolumn{1}{c}{< 0,001} & 
+\multicolumn{1}{c|}{Rejeita $H_0$} \\ 
+\cline{1-3}
 \end{tabular}
-\end{table}
 ```
 :::
 
-A $\ref{fig-grafico_2}$ apresentada acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. Observa-se uma relação positiva clara: à medida que a altura aumenta, o peso também tende a ser maior. Já a  @tbl-tabela_pearson mostra os resultados: a correlação de Pearson indicou que há evidência estatisticamente significativa de que existe uma correlação linear entre peso e altura.(ρ≈0.70).
-
-Em resumo, a $\ref{fig-grafico_2}$ e a @tbl-tabela_pearson sugerem fortemente que clientes mais altos tendem a ter maior peso.
-
+A @tbl-tabela_pearson mostra os resultados. A correlação de Pearson indicou que há evidência estatisticamente significativa de que existe uma correlação linear entre peso e altura (ρ≈0.697), mais especificamente, uma correlação forte a moderada. Em resumo, a medida que a altura cresce, o peso tende a crescer (e vice-versa). O inverso também acontece, a medida que o cliente é mais baixo, o peso tende de maneira moderada a forte ser mais baixo também. 
