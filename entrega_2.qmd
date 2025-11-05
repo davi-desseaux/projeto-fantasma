@@ -10,7 +10,7 @@ source("rdocs/entrega_2.R")
 
 ## Variação Peso por Altura
 
-O intuito dessa análise é entender a relação entre o peso (em quilogramas) e altura (em centímetros) dos clientes. A partir dela, concluiremos se a medida que o peso aumenta: a altura também aumenta, o contrário ou se não tem diferença. O nível de significância utilizado será de 5%. 
+O intuito dessa análise é entender a relação entre o peso (em quilogramas) e altura (em centímetros) dos clientes. As variáveis em questão, citadas anteriormente, são classificadas como quantitativas contínuas e foi elaborado um gráfico de dispersão para observar o comportamento delas. A partir disso, concluiremos se a medida que o peso aumenta: a altura também aumenta, o contrário ou se não tem diferença. O nível de significância utilizado será de 5%. 
 
 ```{r}
 #| label: fig-grafico_2
@@ -78,7 +78,7 @@ grafico_2
 ```
 :::
 
-A $\ref{fig-grafico_2}$ apresentada acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. Pela $\ref{fig-grafico_2}$, há indícios de que existe uma relação positiva, ou seja, à medida que a altura aumenta, o peso também tende a ser maior. É exatamente isso que iremos verificar a seguir. Além disso, os Quadros \ref{quad:resumo_peso} e \ref{quad:resumo_altura} apresentam as medidas resumo das variáveis, que nos ajudam a entender um pouco de como ela se comporta, sua variabilidade, etc. 
+A $\ref{fig-grafico_2}$ apresentada acima mostra a relação entre altura (em centímetros) e peso (em quilogramas) dos clientes. Cada ponto representa um indivíduo, permitindo visualizar a distribuição conjunta das duas variáveis. Pela $\ref{fig-grafico_2}$, há indícios de que existe uma relação positiva, ou seja, à medida que a altura aumenta, o peso também tende a ser maior. É exatamente isso que iremos verificar a seguir. Além disso, os Quadros \ref{quad:resumo_peso} e \ref{quad:resumo_altura} apresentam as medidas resumo das variáveis, que nos ajudam a entender um pouco de como elas  se comportam, sua variabilidade, etc. 
   
 Foi escolhido o teste de correlação de Pearson, já que o coeficiente de correlação linear de Pearson indica a força e a direção do relacionamento linear entre duas variáveis quantitativas. As hipóteses do teste são:
 
@@ -108,4 +108,4 @@ Ao realizar o teste, foram encontradas as seguintes conclusões:
 ```
 :::
 
-A @tbl-tabela_pearson mostra os resultados. A correlação de Pearson indicou que há evidência estatisticamente significativa de que existe uma correlação linear entre peso e altura (ρ≈0.697), mais especificamente, uma correlação forte a moderada. Em resumo, a medida que a altura cresce, o peso tende a crescer (e vice-versa). O inverso também acontece, a medida que o cliente é mais baixo, o peso tende de maneira moderada a forte ser mais baixo também. 
+A @tbl-tabela_pearson mostra os resultados. A correlação de Pearson indicou que há evidência estatisticamente significativa de que existe uma correlação linear forte a moderada entre peso e altura (ρ≈0.697). Em resumo, a medida que a altura cresce, o peso tende a crescer (e vice-versa). O inverso também acontece, a medida que o cliente é mais baixo, o peso tende de maneira moderada a forte ser mais baixo também. 

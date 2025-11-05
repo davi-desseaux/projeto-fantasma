@@ -9,16 +9,16 @@ source("rdocs/entrega_1.R")
 
 ## Receita média das lojas registrada nos anos de 1880 até 1889 
 
-Essa análise tem como objetivo visualizar a evolução da receita média total das lojas, em reais, na região do faroeste nos últimos 10 anos (1880-1889). Uma abordagem simples e objetiva foi adotada, onde foi calculada a média, por ano, de faturamento das lojas. As variáveis utilizadas foram data, id (produto, loja, venda), quantidade de produtos vendidos e preço. Além disso, foi utilizada uma taxa de conversão de 5,31 reais para 1 dólar.
+Essa análise tem como objetivo visualizar a evolução da receita média total das lojas, em reais, na região do faroeste nos últimos 10 anos (1880-1889). As variáveis utilizadas foram a renda média das lojas (em reais) e o ano, uma variável quantitativa contínua e uma quantitativa discreta, respectivamente. Além disso, foi utilizada uma taxa de conversão de 5,31 reais para 1 dólar.
 
 
 ```{r}
 #| label: fig-grafico_1
-#| fig-cap: "Receita média das lojas por ano (em reais)"
+#| fig-cap: "Gráfico de linhas da receita média das lojas por ano (em reais)"
 
 
 grafico_1
 ```
 
-A $\ref{fig-grafico_1}$ evidencia que houve um constante aumento na receita média das lojas, indo de R\$105.399,00 no primeiro ano até R\$155.009,10 no último ano (com uma pequena queda entre 1887 e 1888, de R\$135.444,80 para R\$133.757,60). Portanto, ao longo dos 10 anos, a receita média aumentou R\$49.610,10.  Assim, um aumento médio de, aproximadamente, R\$5.000,00.
+A $\ref{fig-grafico_1}$ evidencia que houve um constante aumento na receita média das lojas, indo de R\$105.399,00 no primeiro ano até R\$155.009,10 no último ano (com uma pequena queda entre 1887 e 1888, de R\$135.444,80 para R\$133.757,60). Portanto, ao longo dos 10 anos, a receita média aumentou R\$49.610,10. Ou seja, houve um aumento médio de, aproximadamente, R\$5.000,00 por ano.
 

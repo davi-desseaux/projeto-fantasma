@@ -10,139 +10,64 @@ source("rdocs/entrega_3.R")
 
 ## Idade dos clientes de Âmbar Seco a depender da loja 
 
-Com o intuito de entender melhor o perfil das idades dos clientes nas diferentes lojas da cidade de Âmbar Seco, serão descritas as características dentro do banco de dados e mostrados quais são os perfis das idades dos clientes para cada loja da cidade.
+Com o intuito de entender melhor o perfil das idades dos clientes nas diferentes lojas da cidade de Âmbar Seco, serão descritas as características dentro do banco de dados e mostrados quais são os perfis das idades dos clientes para cada loja da cidade. As variáveis ulitizadas foram idade e loja, classificadas como quantitativa discreta e qualitativa nominal, respectivamente. Foram analisados 415 clientes diferentes distribuídos por 4 lojas.  
 
 
 ```{r}
 #| label: fig-boxplots
-#| fig-cap: "Boxplot da idade dos clientes por loja"
+#| fig-cap: "Boxplot das idades dos clientes por loja"
 
 
 boxplots
 ```
 
+::: {#quad-idades layout-align="center" quad-pos="H"}
 ```{=latex}
-\begin{figure}[H]
-\centering
-\begin{minipage}{0.48\textwidth}
 \begin{quadro}[H]
-	\caption{Vendinha Rápida}
+	\setlength{	\tabcolsep}{9pt}
+	\renewcommand{	\arraystretch}{1.20}
+	\caption{Medidas resumo das idades   por loja}
 	\centering
 	\begin{adjustbox}{max width=\textwidth}
-	\begin{tabular}{|l|S[table-format=3.2]|}
-	\toprule
-	\textbf{Estatística} & \textbf{Valor}\\
-	\midrule
-	Média & 39,76\\
-	Desvio Padrão & 6,05\\
-	Variância & 36,64\\
-	Mínimo & 30\\
-	1º Quartil & 34\\
-	Mediana & 40\\
-	3º Quartil & 44\\
-	Máximo & 49\\
-	\bottomrule
+	\begin{tabular} { | l |
+			S[table-format = 2.2]
+			S[table-format = 2.2]
+			S[table-format = 3.2]
+			S[table-format = 2.2]
+			|}
+	\hline
+		\textbf{Estatística} & \textbf{Banco Careca} & \textbf{Vendinha Rápida} & \textbf{Saloon} & \textbf{Ferraria Seca} \\
+		\hline
+		Média & 34,92 & 40,35 & 34,2 & 33,67 \\
+		Desvio Padrão & 5,57 & 6,03 & 12,7 & 13,31 \\
+		Variância & 31,06 & 36,39 & 161,23 & 177,18 \\
+		Mínimo & 25 & 30 & 15 & 16 \\
+		1º Quartil & 31 & 35 & 26 & 24 \\
+		Mediana & 34 & 41 & 32,5 & 30,5 \\
+		3º Quartil & 40 & 46 & 38 & 39 \\
+		Máximo & 44 & 49 & 77 & 80 \\
+	\hline
 	\end{tabular}
-	\label{quad:idade_vendinha}
+	\label{quad:idades}
 	\end{adjustbox}
 \end{quadro}
-\end{minipage}
-\hfill
-\begin{minipage}{0.48\textwidth}
-\begin{quadro}[H]
-	\caption{Saloon}
-	\centering
-	\begin{adjustbox}{max width=\textwidth}
-	\begin{tabular}{|l|S[table-format=3.2]|}
-	\toprule
-	\textbf{Estatística} & \textbf{Valor}\\
-	\midrule
-	Média & 35,64\\
-	Desvio Padrão & 12\\
-	Variância & 144,12\\
-	Mínimo & 15\\
-	1º Quartil & 27\\
-	Mediana & 34\\
-	3º Quartil & 39\\
-	Máximo & 77\\
-	\bottomrule
-	\end{tabular}
-	\label{quad:idade_saloon}
-	\end{adjustbox}
-\end{quadro}
-\end{minipage}
-\vspace{1em}
-\begin{minipage}{0.48\textwidth}
-\begin{quadro}[H]
-	\caption{Ferraria Seca}
-	\centering
-	\begin{adjustbox}{max width=\textwidth}
-	\begin{tabular}{|l|S[table-format=3.2]|}
-	\toprule
-	\textbf{Estatística} & \textbf{Valor}\\
-	\midrule
-	Média & 33,95\\
-	Desvio Padrão & 13,51\\
-	Variância & 182,54\\
-	Mínimo & 16\\
-	1º Quartil & 24\\
-	Mediana & 31\\
-	3º Quartil & 39\\
-	Máximo & 80\\
-	\bottomrule
-	\end{tabular}
-	\label{quad:idade_ferraria}
-	\end{adjustbox}
-\end{quadro}
-\end{minipage}
-\hfill
-\begin{minipage}{0.48\textwidth}
-\begin{quadro}[H]
-	\caption{Banco Careca}
-	\centering
-	\begin{adjustbox}{max width=\textwidth}
-	\begin{tabular}{|l|S[table-format=3.2]|}
-	\toprule
-	\textbf{Estatística} & \textbf{Valor}\\
-	\midrule
-	Média & 34,99\\
-	Desvio Padrão & 5,47\\
-	Variância & 29,91\\
-	Mínimo & 25\\
-	1º Quartil & 31\\
-	Mediana & 34\\
-	3º Quartil & 40\\
-	Máximo & 44\\
-	\bottomrule
-	\end{tabular}
-	\label{quad:idade_banco}
-	\end{adjustbox}
-\end{quadro}
-\end{minipage}
-\end{figure}
 ```
+
+Medidas resumo das idades por loja
+:::
     
-Os boxplots apresentados no $\ref{fig-boxplots}$ ilustram a distribuição das idades dos clientes nas quatro lojas de Âmbar Seco: Ferraria Seca, Banco Careca, Saloon e Vendinha Rápida. Observa-se que as idades dos clientes variam entre as lojas, tanto em termos de centralidade quanto de dispersão.
+Os boxplots apresentados no $\ref{fig-boxplots}$ ilustram a distribuição das idades dos clientes nas quatro lojas de Âmbar Seco: Ferraria Seca, Banco Careca, Saloon e Vendinha Rápida. Observa-se que as idades dos clientes variam entre as lojas, tanto em termos de centralidade quanto de dispersão. O [**Quadro** @quad-idades] evidencia algumas estatisticas a partir de números precisos que podem passar batidos ao utilizar o boxplot, portanto, também tem enorme valor para a análise.
 
-De forma geral, observa-se que as idades dos clientes variam consideravelmente entre as lojas, com medianas situadas entre 31 e 40 anos. A seguir, destacam-se os principais pontos de cada loja:
+De forma geral, observa-se que as idades dos clientes variam consideravelmente entre as lojas, com medianas situadas entre 30 e 41 anos e médias entre 33 e 41 anos. A seguir, destacam-se os principais pontos de cada loja:
 
-### Ferraria Seca
-Apresenta a maior amplitude de idades entre as lojas, com valores que variam dos 15 aos 80 anos. O grande número de outliers indica a presença de clientes mais velhos que o público típico da loja. A mediana é de 31 anos, sugerindo um público relativamente jovem, mas com presença notável de clientes bem mais velhos.
+A Ferraria Seca apresenta a menor média e mediana de idade entre as 4 e a maior variância, o que é bem interessante e explica o fato de que o maior máximo também é desse recinto.
 
+O Banco Careca possui a menor variância e o menor máximo (quase metade do maior, pertencente à Ferraria Seca), o que faz bastante sentido já que é o mais uniforme e concentrado em alguma faixa específica. Nesse caso, a idade vai de 25 a 44 anos, ou seja, do mínimo para o máximo nem dobra. Enquanto isso, outras lojas tem o máximo igual a 5 vezes o mínimo.
 
-### Banco Careca
-Possui uma distribuição mais concentrada, com faixa etária entre 25 e 45 anos. Tanto o desvio-padrão quanto a variância são menores que nas demais lojas, refletindo uma clientela mais homogênea em termos de idade. A média e a mediana próximas indicam simetria na distribuição.
+Em Saloon, temos a menor idade de todas e uma alta variância, assim como Ferraria Seca. Por isso, ambos tem as duas maiores amplitudes (por muito), sendo de 62 anos em Saloon e 64 na Ferraria Seca. A idade máxima dessa loja é de 77 anos.
 
-### Saloon
-Mostra uma dispersão intermediária, com idades variando de cerca de 15 a 77 anos. A mediana e a média sugerem que a maior parte dos clientes tem aproximadamente 34 anos e o desvio-padrão relativamente alto reflete a presença de clientes bem mais jovens ou mais velhos do que o perfil típico.
+Na Vendinha Rápida está a média mais velha, na faixa dos 40 anos. Aqui a variância é pequena se comparada a Saloon e Ferraria Seca e a idade máxima é de 49 anos. 
 
-### Vendinha Rápida
-A loja apresenta a maior mediana, indicando que seu público é relativamente mais maduro. A dispersão das idades é pequena, sugerindo um perfil de clientes mais homogêneo, com idades concentradas principalmente entre 34 e 44 anos (1º e 3º quartis). A faixa total vai de 30 a 49 anos, sem valores extremos muito distantes. 
+Em termos de tendência central, a média e a mediana de todas está relativamente próxima entre elas para cada loja, o que indica que são razoavelmente bem distribuídas. O que muda é que enquanto o Banco Careca e a Vendinha Rápida variam menos, Saloon e Ferraria Seca têm variâncias muito maiores. Fato que explica a diferença de amplitude entre os dois primeiros e os dois últimos citados. 
 
-### Resumo final
-
-Em termos de tendência central, a média das idades acompanha de perto as medianas, o que indica distribuições relativamente simétricas, exceto na Ferraria Seca, onde há uma leve assimetria à direita devido à presença dOS clientes mais velhos.
-
-No conjunto, os resultados sugerem que o público das lojas de Âmbar Seco é majoritariamente adulto jovem a meia-idade e que há diferenças no perfil etário conforme a loja, com a Vendinha Rápida atendendo clientes mais velhos e a Ferraria Seca apresentando maior heterogeneidade;
-
-Essas variações podem refletir diferentes tipos de produtos, localizações ou estratégias comerciais de cada estabelecimento.
+Essa sequência de constatações permite dizer que o público do Banco Careca e da Vendinha Rápida, no geral, é mais específico e jovem, ficando entre 25 e 50 anos. Enquanto isso, Saloon e Ferraria Seca têm públicos mais distribuídos entre todas as faixasa etárias, levando a crer que para investir em produtos de público-alvo mais jovem especificamente, faz mais sentido olhar para Banco Careca e Vendinha Rápida. Enquanto as outras duas lojas tem potencial para todos os públicos-alvo, não sendo tão nichado.
