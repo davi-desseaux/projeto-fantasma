@@ -12,19 +12,17 @@ source("rdocs/entrega_4.R")
 
 ## Top 3 produtos mais vendidos nas top 3 lojas com maior receita em 1889
 
-Essa análise tem o objetivo de encontrar e visualizar quais são os 3 produtos mais vendidos nas 3 lojas que tiveram a maior receita no ano de 1889. Dessa forma, entender quais foram os produtos, a quantidade vendida e as lojas que mais venderam neste ano.
+Essa análise tem o objetivo de encontrar e visualizar quais são os 3 produtos mais vendidos nas 3 lojas que tiveram a maior receita no ano de 1889. Dessa forma, entender quais foram os produtos, a quantidade vendida e as lojas que mais venderam neste ano. As variáveis utilizadas foram o nome das lojas (qualitativa nominal), nome do produto (qualitativa nominal), quantidade vendida (quantitativa discreta) e receita (quantitativa discreta).  
 
 ```{r}
 #| label: fig-grafico_top3_produtos
 #| fig-cap: "Gráfico de barras bivariado com frequências"
 
 
-grafico_top3_produtos
+grafico_bivariado
 
 ```
 
-A $\ref{fig-grafico_top3_produtos}$ mostra os 3 produtos mais vendidos das 3 lojas com maior receita, em ordem (da maior loja para menor, com os produtos mais vendidos para os menos).Os únicos produtos que se repetem são o whisky (Loja Ouro Fino e Loja TendTudo), o chapéu de couro (Loja Ouro Fino e Ferraria Apache) e a espingarda (Loja TendTudo e Ferraria Apache). Porém, todas as lojas tem pelo menos um produto em comum com as outras, o que sugere uma popularidade desses produtos no Faroeste, independentemente da loja. 
+A $\ref{fig-grafico_top3_produtos}$ mostra os 3 produtos mais vendidos das 3 lojas com maior receita, em ordem (da maior loja para menor).Os únicos produtos que se repetem são o whisky (Loja Ouro Fino e Loja TendTudo), o chapéu de couro (Loja Ouro Fino e Ferraria Apache) e a espingarda (Loja TendTudo e Ferraria Apache). Porém, todas as lojas tem pelo menos um produto em comum com as outras, o que sugere uma popularidade desses produtos no Faroeste, independentemente da loja. 
 
 A porcentagem em cima de cada coluna é a frequência relativa daquele produto em relação à receita total de cada loja. É interessante observar que em nenhuma dessas lojas os 3 produtos mais vendidos somam mais de 45% da receita. Ou seja, há uma variedade de produtos e vendas, não dependendo de algum específico. Esse fato é positivo para as lojas, pois não dependem de um produto único e conseguem captar o capital de forma variada e dispersa. 
-
-(AINDA QUERO COLOCAR UMA TABELA COM AS RECEITAS DESSAS TOP3 LOJAS A TITULO DE CURIOSIDADE)

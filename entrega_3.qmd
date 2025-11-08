@@ -23,12 +23,6 @@ boxplots
 
 ::: {#quad-idades layout-align="center" quad-pos="H"}
 ```{=latex}
-\begin{quadro}[H]
-	\setlength{	\tabcolsep}{9pt}
-	\renewcommand{	\arraystretch}{1.20}
-	\caption{Medidas resumo das idades   por loja}
-	\centering
-	\begin{adjustbox}{max width=\textwidth}
 	\begin{tabular} { | l |
 			S[table-format = 2.2]
 			S[table-format = 2.2]
@@ -48,9 +42,6 @@ boxplots
 		Máximo & 44 & 49 & 77 & 80 \\
 	\hline
 	\end{tabular}
-	\label{quad:idades}
-	\end{adjustbox}
-\end{quadro}
 ```
 
 Medidas resumo das idades por loja

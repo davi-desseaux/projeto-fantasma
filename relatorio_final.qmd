@@ -1,5 +1,5 @@
 ---
-title: "Relatório Old Town Road"
+title: "Pesquisa de mercado e de clientes do Faroeste"
 
 # Nome do documento PDF gerado
 output-file: 25000 - João Sábio
@@ -11,15 +11,37 @@ source("rdocs/source/packages.R")
 ```
 
 # Introdução
-O seguinte projeto tem como objetivo realizar análises estatísticas que visam compreender melhor o mercado e comércio no Faroeste. Serão feitos estudos sobre correlações, distribuições, padrões e outras métricas relevantes para se obter soluções embasadas estatisticamente. Além disso, gráficos, tabelas e quadros que ajudem na visualização de tudo que foi citado. O nível de significância utilizado será de 5%. 
+O seguinte projeto tem como objetivo realizar análises estatísticas que visam compreender melhor o mercado e comércio no Faroeste. Foram feitos estudos sobre receita média por intervalo de tempo, variações de peso e altura e suas possíveis relações e correlações, idades e suas distribuições e produtos mais vendidos nas lojas com maior receita. Essas análises foram realizadas com objetivo de obter soluções embasadas estatisticamente e que agreguem valor à tomada de decisão do cliente. Além disso, gráficos, tabelas e quadros que ajudem na visualização de tudo que foi citado. O nível de significância utilizado será de 5%. 
 
 A base de dados representa uma amostra não probabilística por conveniência, composta pelos registros disponíveis no sistema da empresa.
-Embora não tenha sido realizada uma seleção aleatória, o conjunto de dados é suficientemente amplo e variado, o que permite análises representativas do perfil dos clientes. O banco de dados foi cedido pelo próprio cliente e abrange variáveis de todo tipo (quantitativas e qualitativas), englobando informações sobre lojas, cidades, clientes, vendas e muito mais.
+Embora não tenha sido realizada uma seleção aleatória, o conjunto de dados é suficientemente amplo e variado, o que permite análises representativas do perfil dos clientes. O banco de dados foi cedido pelo próprio cliente e abrange variáveis quantitativas e qualitativas, sendo as principais utilizadas idade, peso, altura, nome e id de clientes; nome e ID de cidades e lojas; nome, ID e preço dos produtos; data, ID, loja, cliente e quantidade de cada venda.
 
-O software utilizado será o R na versão 4.3.0.
+O software utilizado para análise estatística dos dados foi o R versão 4.4.3. O R é um software de programação gratuito largamente usado na área de estatística e visualização de dados que permite não só o manuseio e análise de bancos de dados, como também a confecção de gráficos,  quadros e testes estatísticos.
 
 # Referencial Teórico
 Este relatório é composto por técnicas estatísticas que serão descristas a seguir de acordo com o que foi utilizado em tal estudo.
+
+## Frequência Relativa
+
+A frequência relativa é utilizada para a comparação entre classes de uma variável categórica com $c$ categorias, ou para comparar uma mesma categoria em diferentes estudos.
+
+A frequência relativa da categoria $j$ é dada por:
+
+$$
+f_j=\frac{n_j}{n}
+$$
+
+Com:
+
+-   $j = 1, \, ..., \, c$
+
+-   $n_j =$ número de observações da categoria $j$
+
+-   $n =$ número total de observações
+
+Geralmente, a frequência relativa é utilizada em porcentagem, dada por:
+
+$$100 \times f_j$$
 
 ## Média
 
@@ -65,21 +87,46 @@ Se o cálculo da posição resultar em uma fração, deve-se fazer a média entr
 
 A variância é uma medida que avalia o quanto os dados estão dispersos em relação à média, em uma escala ao quadrado da escala dos dados.
 
+### Variância Populacional
+
+Para uma população, a variância é dada por:
+
+$$\sigma^2=\frac{\sum\limits_{i=1}^{N}\left(X_i - \mu\right)^2}{N}$$
+
+Com:
+
+-   $X_i =$ $i$-ésima observação da população
+
+-   $\mu =$ média populacional
+
+-   $N =$ tamanho da população
+
+
 ## Desvio Padrão
 
 O desvio padrão é a raiz quadrada da variância. Ele avalia o quanto os dados estão dispersos em relação à média.
+
+### Desvio Padrão Populacional
+
+Para uma população, o desvio padrão é dado por:
+
+$$\sigma=\sqrt{\frac{\sum\limits_{i=1}^{N}\left(X_i - \mu\right)^2}{N}}$$
+
+Com:
+
+-   $X_i =$ i-ésima observação da população
+
+-   $\mu =$ média populacional
+
+-   $N =$ tamanho da população
+
+## Boxplot
 
 O boxplot é uma representação gráfica na qual se pode perceber de forma mais clara como os dados estão distribuídos. A figura abaixo ilustra um exemplo de boxplot.
 
 ![Exemplo de boxplot](images/box_uni.png){fig-align="center"}
 
-A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a superior indica o terceiro quartil. Já o traço no interior do retângulo representa a mediana do conjunto de dados, ou seja, o valor em que o conjunto de dados é dividido em dois subconjuntos de mesmo tamanho. A média é representada pelo losango branco e os pontos são *outliers*. Os *outliers* são valores discrepantes da série de dados, ou seja, valores que não demonstram a realidade de um conjunto de dados.
-
-## Histograma
-
-O histograma é uma representação gráfica utilizada para a visualização da distribuição dos dados e pode ser construído por valores absolutos, frequência relativa ou densidade. A figura abaixo ilustra um exemplo de histograma.
-
-![Exemplo de histograma](images/hist_uni.png){fig-align="center"}
+A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a superior indica o terceiro quartil. Já o traço no interior do retângulo representa a mediana do conjunto de dados, ou seja, o valor em que o conjunto de dados é dividido em dois subconjuntos de mesmo tamanho. A média é representada pelo losango branco e os pontos são *outliers*. Os *outliers* são valores discrepantes da série de dados, ou seja, valores que não demonstram a realidade de um conjunto de dados. 
 
 ## Gráfico de Dispersão
 
@@ -124,7 +171,10 @@ Para a formulação de um teste, deve-se definir as hipóteses de interesse. Em 
 -   **Teste Unilateral**:\
     Dependendo das informações que o pesquisador possui a respeito do problema e os questionamentos que possui, a hipótese alternativa pode ser feita de forma a verificar se existe diferença entre os parâmetros em um dos sentidos. Ou seja:
 
-    $$ H_{1}: \theta < \theta_{0} $$ ou $$ H_{1}: \theta > \theta_{0} $$ \## Tipos de Erros Ao realizar um teste de hipóteses, existem dois erros associados: **Erro do Tipo I** e **Erro do Tipo II**.
+    $$ H_{1}: \theta < \theta_{0} $$ ou $$ H_{1}: \theta > \theta_{0} $$ \
+    
+## Tipos de Erros 
+Ao realizar um teste de hipóteses, existem dois erros associados: **Erro do Tipo I** e **Erro do Tipo II**.
 
 -   **Erro do Tipo I**:\
     Esse erro é caracterizado por rejeitar a hipótese nula ($H_{0}$) quando essa é verdadeira. A probabilidade associada a esse erro é denotada por $\alpha$, também conhecido como nível de significância do teste.
@@ -144,53 +194,66 @@ A estatística do teste é o estimador que será utilizado para testar se a hip�
 
 ### P-valor
 
-O **P-valor**, ou nível descritivo, é uma medida utilizada para sintetizar o resultado de um teste de hipóteses. Ele também pode ser chamado de *probabilidade de significância* do teste e indica a probabilidade de se obter um resultado da estatística de teste mais extremo do que o observado na presente amostra, considerando que a hipótese nula é verdadeira. Dessa forma, rejeita-se $H_{0}$ quando $P\text{-valor} < \alpha$, porque a chance de uma nova amostra possuir valores tão extremos quanto o encontrado é baixa, ou seja, há evidências para a rejeição da hipótese nula.
+O **P-valor**, ou nível descritivo, é uma medida utilizada para sintetizar o resultado de um teste de hipóteses. Ele também pode ser chamado de *probabilidade de significância* do teste e indica a probabilidade de se obter um resultado da estatística de teste mais extremo do que o observado na presente amostra, considerando que a hipótese nula é verdadeira. Dessa forma, rejeita-se $H_{0}$ quando $P\text{-valor} < \alpha$, porque a chance de uma nova amostra possuir valores tão extremos quanto o encontrado é baixa, ou seja, há evidências para a rejeição da hipótese nula.  
 
-### Teste de Correlação de Postos de Spearman
+## Intervalo de Confiança
 
-O coeficiente de correlação de Spearman é uma medida não paramétrica que verifica, por meio de postos de variáveis quantitativas ou qualitativas ordinais, o grau de correlação linear entre duas variáveis. Esse coeficiente varia entre os valores -1 e 1. O valor zero significa que não há relação linear entre as variáveis. Quando o valor do coeficiente $r$ é negativo, diz-se ter uma relação de grandeza inversamente proporcional entre as variáveis. Analogamente, quando $r$ é positivo, afirma-se que as duas variáveis são diretamente proporcionais.
+Quando calcula-se um estimador pontual para o parâmetro, não é possível definir qual a possível magnitude do erro que se está cometendo. Com o objetivo de associar um erro à estimativa, são construídos os intervalos de confiança que se baseiam na distribuição amostral do estimador pontual.
 
-O coeficiente é calculado da seguinte maneira:
+Dessa forma, considere $T$ um estimador pontual para $\theta$ e que a distribuição amostral de $T$ é conhecida. O intervalo de confiança para o parâmetro $\theta$ será dado por $t_{1}$ e $t_{2}$, tal que:
+
+$$ P(t_{1} < \theta < t_{2}) = \gamma $$
+
+A probabilidade $\gamma$ é estabelecida no início do estudo e representa o nível de confiança do intervalo. A interpretação desse resultado é que, se forem tiradas várias amostras de mesmo tamanho e forem calculados intervalos de confiança para cada uma, $100 \times \gamma \%$ dos intervalos irão conter o parâmetro $\theta$. Assim, ao calcular um intervalo, pode-se dizer que há $100 \times \gamma \%$ de confiança de que o intervalo contém o parâmetro de interesse.
+
+## Coeficiente de Correlação de Pearson
+
+O coeficiente de correlação de Pearson é uma medida que verifica o grau de relação linear entre duas variáveis quantitativas. Este coeficiente varia entre os valores -1 e 1. O valor zero significa que não há relação linear entre as variáveis. Quando o valor do coeficiente $r$ é negativo, diz-se existir uma relação de grandeza inversamente proporcional entre as variáveis. Analogamente, quando $r$ é positivo, diz-se que as duas variáveis são diretamente proporcionais.
+
+O coeficiente de correlação de Pearson é normalmente representado pela letra $r$ e a sua fórmula de cálculo é:
 
 $$
-r_{Spearman} = \frac{ \displaystyle \sum_{i=1}^{n}  \left[\left(R(x_i)-\frac{n+1}{2}\right)\left(R(y_i)-\frac{n+1}{2}\right)\right]}
-{\sqrt{\displaystyle \sum_{i=1}^{n}  \left(R(x_i)^2\right)-n\left(\frac{n+1}{2}\right)^{2}}  \times \sqrt{\displaystyle \sum_{i=1}^{n}  \left(R(y_i)^2 \right) -n\left(\frac{n+1}{2}\right)^{2}}}
+r_{Pearson} = \frac{\displaystyle \sum_{i=1}^{n} \left [ \left(x_i-\bar{x}\right) \left(y_i-\bar{y}\right) \right]}{\sqrt{\displaystyle \sum_{i=1}^{n} x_i^2 - n\bar{x}^2}  \times \sqrt{\displaystyle \sum_{i=1}^{n} y_i^2 - n\bar{y}^2}}
 $$
 
-no qual
+Onde:
+
+-   $x_i =$ i-ésimo valor da variável $X$
+-   $y_i =$ i-ésimo valor da variável $Y$
+-   $\bar{x} =$ média dos valores da variável $X$
+-   $\bar{y} =$ média dos valores da variável $Y$
+
+Vale ressaltar que o coeficiente de Pearson é paramétrico e, portanto, sensível quanto à normalidade (simetria) dos dados.
+
+## Teste de Correlação de Pearson
+
+O coeficiente de correlação linear de Pearson indica a força e a direção do relacionamento linear entre duas variáveis quantitativas. É um índice adimensional com valores situados entre -1 e 1, no qual o valor -1 representa total correlação linear negativa entre as variáveis (quando o valor de uma variável cresce, o valor da outra diminui) e o valor 1 representa total correlação linear positiva entre elas (ambas crescem simultaneamente). Esse coeficiente é obtido por meio da fórmula:
+
+$$r_{Pearson} = \frac{\displaystyle \sum_{i=1}^{n} \left [ \left(x_i-\bar{x}\right) \left(y_i-\bar{y}\right) \right]}{\sqrt{\displaystyle \sum_{i=1}^{n} x_i^2 - n\bar{x}^2} \sqrt{\displaystyle \sum_{i=1}^{n} y_i^2 - n\bar{y}^2}}$$
+
+\noindent em que
 
 -   $x_i=$ i-ésimo valor da variável $X$
+
 -   $y_i=$ i-ésimo valor da variável $Y$
--   $R(x_i)=$ posto atribuído a $x_{i}$, quando comparado a outros valores de $x$
--   $R(y_i)=$ posto atribuído a $y_{i}$, quando comparado a outros valores de $y$
--   $n=$ número total de observações na amostra
--   $r_{Spearman}=$ coeficiente de correlação de postos de Spearman amostral
 
-**Observação:** ao ordenar de forma crescente as observações $x_1,x_2,...,x_n,y_1,y_2,...,y_n$ afirma-se que $R(X_1)=1$ se $x_1$ é o menor valor da amostra, $R(X_3)=2$ se $x_3$ é o segundo menor valor da amostra, $R(X_4)=3$ se $x_4$ é o terceiro menor valor, e assim sucessivamente. Quando há empates nas observações, o posto atribuído a elas é a média dos postos que teriam se não houvesse empate. Por exemplo, se $X$ assume os valores 9, 5, 6 e 9, tem-se duas observações com mesmo valor e, assim, seus postos serão obtidos por meio da média entre 3 e 4, que seriam seus postos se não houvesse empate.
+-   $\bar{x}=$ média dos valores da variável $X$
 
-Por ser um método não paramétrico, não há suposições para o teste.
+-   $\bar{y}=$ média dos valores da variável $Y$
 
-Para a realização do teste, são feitas as seguintes hipóteses:
+-   $r_{Pearson}=$ coeficiente de correlação linear de Pearson amostral
 
-\hipoteses{Não há correlação de postos entre as variáveis $X$ e $Y$ $\left(\rho_{Spearman} = 0 \right)$ }{Há correlação de postos entre as variáveis $X$ e $Y$ $\left(\rho_{Spearman} \neq 0 \right)$ }
+Para o teste de correlação de Pearson, tem-se as seguintes hipóteses:
 
-em que $\rho_{Spearman}$ é o coeficiente de correlação de postos populacional (parâmetro a ser testado com base em $r_{Spearman}$).
+\hipoteses{Não há correlação linear entre as variáveis $X$ e $Y$ $\left(\rho_{Pearson} = 0 \right)$ }{Há correlação linear entre as variáveis $X$ e $Y$ $\left(\rho_{Pearson} \neq 0 \right)$ }
 
-Além disso, a hipótese alternativa também pode ser escrita para testar se a correlação dos postos é positiva ($\rho_{Spearman} > 0$) ou negativa ($\rho_{Spearman} < 0$).
+em que $\rho_{Pearson}$ é o parâmetro a ser testado: coeficiente de correlação linear populacional.
 
-A estatística T do teste ($T=r_{Spearman}$), se $H_0$ é verdadeira, tem distribuição:
+Se X e Y tem distribuição normal, tem-se que a estatística do teste é dada por:
 
--   **a)** **Pequenas amostras e sem/poucos empates:** exata com os valores apresentados em uma tabela.
--   **b)** **Grandes amostras ou muitos empates:** aproximada pela Normal Padrão (Normal com média 0 e variância 1), tal que: $$
-    w_p = \frac{z_p}{\sqrt[]{(n-1)}}
-    $$
+$$t_{Pearson} = \frac{r_{Pearson} \sqrt{n-2}}{\sqrt{1-r_{Pearson}^2}} \sim t_{n-2} $$
 
-no qual
-
--   $w_p=$ quantil de ordem p da distribuição que a estatística T segue
--   $z_p=$ quantil de ordem p da distribuição Normal padrão
--   $n=$ número total de observações na amostra
-
+Assim, sob $H_{0}$, $t_{Pearson}$ segue uma distribuição \textit{t}-Student com ($n - 2$) graus de liberdade.
 
 # Análises
 
@@ -210,10 +273,10 @@ no qual
 
 O objetivo desse projeto era entender melhor o cenário do comércio no Faroeste para estudá-lo e entender dores, possibilidades de expansão, tendências, etc. Compreender características e extrair informaçõe relevantes para o negócio, baseando-se em dados de todo tipo e relacionados à diferentes pontos (receita média, características físicas, idade, produtos).
 
-Em relação à evolução do mercado, as análises de receita média das lojas indicam um crescimento constante ao longo da última década (1880-1889). Houve um aumento médio de aproximadamente R\$ 5.000,00 na receita média anual, sugerindo um mercado em expansão e saudável e com possibilidades de investimentos.
+Em relação à evolução do mercado, as análises de receita média das lojas indicam um crescimento constante ao longo da última década (1880-1889). Houve um aumento médio de aproximadamente R\$ 5.000,00 na receita média anual, sugerindo um mercado em expansão e saudável com possibilidades de investimentos.
 
 No que tange ao perfil do consumidor, a análise da correlação entre peso e altura demonstrou haver uma relação positiva estatisticamente significativa. Isso implica que clientes mais altos tendem a ter um peso maior, uma informação útil para estratégias relacionadas a produtos que dependem de dimensões físicas, podendo direcionar melhor os produtos para cada região (ou até cada loja).
 
-RESUMO DA ANÁLISE 3 VAI FICAR PENDENTE PORQUE AINDA ESTÁ ERRADO
+Sobre a idade dos clientes de Âmbar Seco, foi possível tirar conclusões relevantes para cada loja referente à faixa etária. Prinipalmente que o público do Banco Careca e da Vendinha Rápida, no geral, é mais específico e jovem, ficando entre 25 e 50 anos. Enquanto Saloon e Ferraria Seca têm públicos mais distribuídos entre todas asfaixasa etárias, levando a crer que para investir em produtos de público-alvo mais jovem especificamente, faz mais sentido olhar para Banco Careca e Vendinha Rápida. Em contrapartida, as outras duas lojas tem potencial para todos os públicos-alvo, não sendo tão nichado.
 
 Por fim, ao analisar os produtos de maior sucesso nas três lojas com maior receita em 1889, verificou-se que produtos como chapéu de couro, whisky e espingarda são populares em todo o Faroeste, pois se repetem entre as líderes de vendas. No entanto, é um ponto positivo que nenhuma das lojas dependa excessivamente de um único item, já que o trio de produtos mais vendidos não somou mais de 45% da receita em nenhum dos casos. Isso demonstra uma variedade saudável de vendas e uma entrada de capital de forma dispersa.
