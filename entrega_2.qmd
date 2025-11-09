@@ -108,4 +108,20 @@ Ao realizar o teste, foram encontradas as seguintes conclusões:
 ```
 :::
 
-A @tbl-tabela_pearson mostra os resultados. A correlação de Pearson indicou que há evidência estatisticamente significativa de que existe uma correlação linear forte a moderada entre peso e altura (ρ≈0.697). Em resumo, a medida que a altura cresce, o peso tende a crescer (e vice-versa). O inverso também acontece, a medida que o cliente é mais baixo, o peso tende de maneira moderada a forte ser mais baixo também. 
+
+::: {#quad-intervalo layout-align="center" quad-pos="H"}
+```{=latex}
+    \begin{tabular}{|c I|}
+        \hline
+        \textbf{Parâmetro} & \textbf{Intervalo de Confiança (95\%)} \\
+        \hline
+        Coeficiente de Correlação Linear & \interval{0.67}{0.72} \\
+        \hline
+    \end{tabular}
+```
+Intervalo de confiança do coeficiente de correlação de Pearson
+:::
+
+
+A @tbl-tabela_pearson mostra os resultados. O coeficiente de correlação linear de Pearson entre peso e altura é 0.697, com um intervalo de confiança de 95% entre 0.63 e 0.74 evidenciado no [**Quadro** @quad-intervalo].
+Isso indica uma correlação positiva forte e estatisticamente significativa, sugerindo que indivíduos mais altos tendem a ter maior peso, e é improvável que essa relação seja fruto do acaso. Em resumo, a medida que a altura cresce, o peso tende a crescer (e vice-versa). O inverso também acontece, a medida que o cliente é mais baixo, o peso tende de maneira moderada a forte ser mais baixo também. 

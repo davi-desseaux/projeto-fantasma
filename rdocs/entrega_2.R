@@ -41,3 +41,8 @@ infos_clientes %>%
 
 infos_clientes %>%
   print_quadro_resumo(var_name = "altura")
+
+teste_cor <- cor.test(peso, altura, method = "pearson")
+lim_inf <- teste_cor$conf.int[1]
+lim_sup <- teste_cor$conf.int[2]
+sprintf("[%.2f ; %.2f]", lim_inf, lim_sup)
